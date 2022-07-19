@@ -16,6 +16,11 @@ void loop(){
   digitalWrite(trigPin,LOW);
   duration=pulseIn(echoPin,HIGH);
   distance=(duration*0.034/2);
+   if(distance < 5 ){                   // conditional to test and turn on LED if the distance is than 5cm
+    digitalWrite(LED_BUILTIN, HIGH);   // turn the LED on (HIGH is the voltage level)
+  }else{
+     digitalWrite(LED_BUILTIN, LOW);   // turn the LED on (HIGH is the voltage level) 
+  }
   Serial.print("Distance : ");
   Serial.print(distance);
   Serial.println(" cm ");
